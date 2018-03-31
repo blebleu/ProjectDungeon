@@ -26,9 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>//draw_self();
-d3d_draw_block(x, y, 1, x + 64, y + 64, 64, sprite_get_texture(spr_block, 0), 1, 1);
-d3d_draw_block(x, y, 64, x + 64, y + 64, 124, sprite_get_texture(spr_block, 0), 1, 1);
-d3d_draw_block(x, y, 124, x + 64, y + 64, 188, sprite_get_texture(spr_block, 0), 1, 1);
+d3d_draw_block(x, y, 1, x + 60, y + 60, 64, sprite_get_texture(spr_block, 0), 1, 1);
+d3d_draw_block(x, y, 64, x + 60, y + 60, 124, sprite_get_texture(spr_block, 0), 1, 1);
+d3d_draw_block(x, y, 124, x + 60, y + 60, 188, sprite_get_texture(spr_block, 0), 1, 1);
 </string>
           </argument>
         </arguments>
