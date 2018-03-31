@@ -17,6 +17,7 @@
   <objects name="objects">
     <object>objects\obj_camera</object>
     <object>objects\obj_world</object>
+    <object>objects\obj_test</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
