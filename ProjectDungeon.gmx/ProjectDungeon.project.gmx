@@ -20,13 +20,15 @@
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\obj_camera</object>
-    <object>objects\obj_spawner</object>
+    <object>objects\obj_room_spawner</object>
     <object>objects\obj_lights</object>
     <object>objects\obj_test2</object>
     <object>objects\obj_block</object>
     <object>objects\obj_ghostie</object>
     <object>objects\obj_collectable</object>
     <object>objects\obj_floor</object>
+    <object>objects\obj_spawner</object>
+    <object>objects\obj_haunted</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
