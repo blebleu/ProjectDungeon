@@ -87,10 +87,6 @@ pitch = clamp(pitch + (display_mouse_get_y() - display_get_height()/2)/10, -80, 
 
 display_mouse_set(display_get_width()/2, display_get_height()/2);
 
-if(keyboard_check(vk_escape)){
-    game_end();
-    }
-
 // Handle Movement  
 xspeed = 0;
 yspeed = 0; 
@@ -219,7 +215,6 @@ if (items &gt;= 2){
 item_2_missing = false;
 }
 if (items &gt;= 3){
-item_3_missing = false;
 room_goto(rm_win);
 }
 
