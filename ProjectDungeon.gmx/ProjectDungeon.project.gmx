@@ -38,6 +38,7 @@
     <object>objects\obj_haunted</object>
     <object>objects\obj_splash</object>
     <object>objects\obj_lose</object>
+    <object>objects\obj_win</object>
     <object>objects\obj_restart</object>
   </objects>
   <rooms name="rooms">
