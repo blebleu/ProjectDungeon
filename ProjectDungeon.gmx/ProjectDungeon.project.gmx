@@ -11,6 +11,7 @@
     <sprite>sprites\spr_lights</sprite>
     <sprite>sprites\spr_camera</sprite>
     <sprite>sprites\spr_key</sprite>
+    <sprite>sprites\spr_overlay</sprite>
     <sprite>sprites\spr_ghostie</sprite>
   </sprites>
   <backgrounds name="background">

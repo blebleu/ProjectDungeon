@@ -42,6 +42,14 @@ item_3_missing = true;
 
 window_set_cursor(cr_none);
 
+//Overlay Shit
+overlayTimer=0;
+overlayLimit=2*room_speed;
+overlayDirection=true; //true=increasing,false=decreasing
+overlayOn=false;
+overlayAlphaMax=0.5;
+overlayAlphaMin=0.1;
+overlayAlpha=overlayAlphaMin;
 </string>
           </argument>
         </arguments>
@@ -173,6 +181,73 @@ item_3_missing = false;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Overlay step
+if(overlayDirection=true) overlayTimer++;
+else overlayTimer--;
+
+var enemyDist = point_distance(x,y,obj_ghostie.x,obj_ghostie.y);
+
+if(enemyDist&lt;250){
+    overlayOn=true;
+    overlayAlphaMax=1;
+    overlayAlphaMin=0.5;
+    overlayLimit=room_speed/2;
+}
+else if(enemyDist&lt;400){
+    overlayOn=true;
+    overlayAlphaMax=0.8;
+    overlayAlphaMin=0.3;
+    overlayLimit=room_speed;
+}
+else if(enemyDist&lt;700){
+    overlayOn=true;
+    overlayAlphaMax=0.65;
+    overlayAlphaMin=0.2;
+    overlayLimit=room_speed*1.5;
+}
+else if(enemyDist&lt;1000){
+    overlayOn=true;
+    overlayAlphaMax=0.5;
+    overlayAlphaMin=0.1;
+    overlayLimit=room_speed*2;
+}
+else{
+    overlayOn=false;
+    overlayTimer=0;
+    overlayAlphaMax=0;
+    overlayAlphaMin=0;
+}
+overlayAlpha=(overlayTimer/overlayLimit)*overlayAlphaMax;
+if(overlayAlpha&lt;overlayAlphaMin) overlayAlpha=overlayAlphaMin;
+
+if(overlayTimer&lt;=0) {
+    overlayTimer=0;
+    overlayDirection=true;
+}
+else if (overlayTimer&gt;=overlayLimit){
+    overlayTimer=overlayLimit;
+    overlayDirection=false;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="64">
       <action>
@@ -195,6 +270,31 @@ item_3_missing = false;
 draw_ellipse(0,0, 20,20, item_1_missing);
 draw_ellipse(30,0, 50,20, item_2_missing);
 draw_ellipse(60,0, 80,20, item_3_missing);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Overlay GUI
+if(overlayOn){
+    draw_set_alpha(overlayAlpha);
+    draw_sprite(spr_overlay,0,0,0);
+}
 </string>
           </argument>
         </arguments>
