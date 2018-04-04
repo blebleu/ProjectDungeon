@@ -17,10 +17,12 @@
     <sprite>sprites\spr_red</sprite>
     <sprite>sprites\spr_splash</sprite>
     <sprite>sprites\spr_lose</sprite>
+    <sprite>sprites\spr_end</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_ground</background>
     <background>background\bg_block</background>
+    <background>background\bc_end</background>
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
@@ -36,11 +38,13 @@
     <object>objects\obj_haunted</object>
     <object>objects\obj_splash</object>
     <object>objects\obj_lose</object>
+    <object>objects\obj_restart</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_splash</room>
-    <room>rooms\room0</room>
+    <room>rooms\rm_main</room>
     <room>rooms\rm_lose</room>
+    <room>rooms\rm_win</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

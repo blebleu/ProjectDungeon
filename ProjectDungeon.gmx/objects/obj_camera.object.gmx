@@ -79,7 +79,102 @@ jumpscareProximity=200;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>d3d_start();
+            <string>///Player Movement
+
+direction-= (display_mouse_get_x() - display_get_width()/2)/10; //Left and Right for camera
+
+pitch = clamp(pitch + (display_mouse_get_y() - display_get_height()/2)/10, -80, 80); //Up and down for camera
+
+display_mouse_set(display_get_width()/2, display_get_height()/2);
+
+if(keyboard_check(vk_escape)){
+    game_end();
+    }
+
+// Handle Movement  
+xspeed = 0;
+yspeed = 0; 
+var d = degtorad(direction);      
+switch  (keyboard_key){
+    case vk_left:
+    case ord('A'):
+        xspeed-= sin(d) * move_speed;
+        yspeed-= cos(d) * move_speed;
+        
+    
+        break;
+    case vk_down:
+    case ord('S'):
+    
+        xspeed-= cos(d) * move_speed;
+        yspeed+= sin(d) * move_speed;
+        break;
+    case vk_right:
+    case ord('D'):
+    
+        xspeed+= sin(d) * move_speed;
+        yspeed+= cos(d) * move_speed;
+            
+        break;
+    case vk_up:
+    case ord('W'):
+    
+        xspeed+= cos(d) * move_speed; 
+        yspeed-= sin(d) * move_speed;
+    
+        break;
+}
+
+
+//Wall Collision
+if (!place_meeting(x + xspeed,  y, obj_block)){
+        x += xspeed; //Move X
+}
+else{
+        xspeed = 0; 
+}
+
+if (!place_meeting(x,  y + yspeed, obj_block)){
+        y += yspeed; //Move X
+}
+else{
+        yspeed = 0; 
+}
+//Keep Player In Room
+x=clamp(x,70,room_width-sprite_width);
+y=clamp(y,70,room_height-sprite_height);
+
+
+
+
+// Collect Items
+
+with(instance_place(x,y, obj_collectable))
+    {
+    instance_destroy();
+
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/*d3d_start();
 pitch = 0;
 direction = 0;
 z = 0;
@@ -125,7 +220,10 @@ item_2_missing = false;
 }
 if (items &gt;= 3){
 item_3_missing = false;
+room_goto(rm_win);
 }
+
+
 </string>
           </argument>
         </arguments>
