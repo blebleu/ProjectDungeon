@@ -10,6 +10,7 @@
     <sprite>sprites\spr_block</sprite>
     <sprite>sprites\spr_lights</sprite>
     <sprite>sprites\spr_camera</sprite>
+    <sprite>sprites\spr_key</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_ground</background>
@@ -18,10 +19,12 @@
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\obj_camera</object>
-    <object>objects\obj_ground</object>
+    <object>objects\obj_spawner</object>
     <object>objects\obj_lights</object>
     <object>objects\obj_test2</object>
     <object>objects\obj_block</object>
+    <object>objects\obj_floor</object>
+    <object>objects\obj_collectable</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

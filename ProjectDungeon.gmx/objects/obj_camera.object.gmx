@@ -35,6 +35,11 @@ yspeed = 0;
 zspeed = 0;
 move_speed = 4;
 
+items = 0;
+item_1_missing = true;
+item_2_missing = true;
+item_3_missing = true;
+
 window_set_cursor(cr_none);
 
 </string>
@@ -106,7 +111,7 @@ switch  (keyboard_key){
 }
 
 
-
+//Wall Collision
 if (!place_meeting(x + xspeed,  y, obj_block)){
         x += xspeed; //Move X
 }
@@ -120,6 +125,76 @@ if (!place_meeting(x,  y + yspeed, obj_block)){
 else{
         yspeed = 0; 
 }
+//Keep Player In Room
+x=clamp(x,70,room_width-sprite_width);
+y=clamp(y,70,room_height-sprite_height);
+
+
+
+
+// Collect Items
+
+with(instance_place(x,y, obj_collectable))
+    {
+    instance_destroy();
+
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Inv Management
+if (items &gt;= 1){
+item_1_missing = false;
+}
+if (items &gt;= 2){
+item_2_missing = false;
+}
+if (items &gt;= 3){
+item_3_missing = false;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_set_colour(c_yellow);
+draw_ellipse(0,0, 20,20, item_1_missing);
+draw_ellipse(30,0, 50,20, item_2_missing);
+draw_ellipse(60,0, 80,20, item_3_missing);
 </string>
           </argument>
         </arguments>
@@ -143,7 +218,7 @@ else{
           <argument>
             <kind>1</kind>
             <string>draw_set_colour(c_white);
-d3d_set_fog(true, c_black, 5, 1000); //CAN MAKE A FOG IF NEEDED
+d3d_set_fog(true, c_black, 0, 500); //CAN MAKE A FOG IF NEEDED
 d3d_set_projection(x, y, z + 64 , x +cos(degtorad(direction)), y - sin(degtorad(direction)), z-sin(degtorad(pitch))+64,0,0,1);
 </string>
           </argument>
