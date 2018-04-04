@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spd=2;
+            <string>spd=1;
 scanLen=1000;
 teleportTimer=0;
 teleportLimit=3*room_speed;
@@ -96,18 +96,30 @@ else{
     triY2=Target.y+lengthdir_y(scanLen,Target.direction+40);
 }
 if(!point_in_triangle(x,y,Target.x,Target.y,triX1,triY1,triX2,triY2)){
+    Target.jumpscareTimer=0;
     DestX= Target.x;
     DestY= Target.y;
-    direction = point_direction(x,y,Target.x,Target.y);
     mp_potential_step(DestX,DestY,spd,false);
+}
+else{
+    Target.jumpscareTimer++;
+    if(Target.jumpscareTimer&gt;Target.jumpscareLimit || point_distance(x,y,Target.x,Target.y)&lt;Target.jumpscareProximity){
+        Target.jumpscare=true;
+        Target.jumpscareTime=Target.jumpscareDur;
+        x=6000;
+        y=6000;
+        teleportTimer=-10*room_speed;
+    }
 }
 if(point_distance(x,y,Target.x,Target.y)&gt;=scanLen+50 &amp;&amp; teleportTimer&gt;teleportLimit){
     do{
     var ran = irandom_range(0,360);
     x=Target.x+lengthdir_x(scanLen+50,ran);
+    y=Target.y+lengthdir_y(scanLen+50,ran);
     }until(x&gt;0 &amp;&amp; y&gt;0 &amp;&amp; x&lt;room_width &amp;&amp; y&lt;room_height);
     teleportTimer=0;
 }
+show_debug_message(teleportTimer);
 teleportTimer++;
 </string>
           </argument>
@@ -132,6 +144,7 @@ teleportTimer++;
           <argument>
             <kind>1</kind>
             <string>d3d_draw_ellipsoid(x-32,y-32,33,x+32,y+32,97,sprite_get_texture(spr_ghostie,0),1,1,24);
+
 </string>
           </argument>
         </arguments>

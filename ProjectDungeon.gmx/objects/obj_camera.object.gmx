@@ -50,6 +50,13 @@ overlayOn=false;
 overlayAlphaMax=0.5;
 overlayAlphaMin=0.1;
 overlayAlpha=overlayAlphaMin;
+//jumpscare
+jumpscare=false;
+jumpscareDur=room_speed/2;
+jumpscareTime=0;
+jumpscareTimer=0;
+jumpscareLimit=5*room_speed;
+jumpscareProximity=200;
 </string>
           </argument>
         </arguments>
@@ -198,10 +205,23 @@ item_3_missing = false;
           <argument>
             <kind>1</kind>
             <string>///Overlay step
-if(overlayDirection=true) overlayTimer++;
+var enemyDist = point_distance(x,y,obj_ghostie.x,obj_ghostie.y);
+if(enemyDist&lt;1000){
+    overlayOn=true;
+    if(overlayAlpha&gt;overlayAlphaMax) overlayDirection=false;
+    else if(overlayAlpha&lt;overlayAlphaMin) overlayDirection=true;
+    if(overlayDirection) overlayAlpha+=0.005;
+    else overlayAlpha-=0.005;
+}
+else{
+    overlayOn=false;
+    overlayAlpha=overlayAlphaMin;
+}
+show_debug_message(overlayOn);
+/*if(overlayDirection=true) overlayTimer++;
 else overlayTimer--;
 
-var enemyDist = point_distance(x,y,obj_ghostie.x,obj_ghostie.y);
+
 
 if(enemyDist&lt;250){
     overlayOn=true;
@@ -243,6 +263,31 @@ if(overlayTimer&lt;=0) {
 else if (overlayTimer&gt;=overlayLimit){
     overlayTimer=overlayLimit;
     overlayDirection=false;
+}*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Jumpscare
+if(jumpscare){
+    jumpscareTime--;
+    if(jumpscareTime&lt;=0) jumpscare=false;
 }
 </string>
           </argument>
@@ -294,6 +339,34 @@ draw_ellipse(60,0, 80,20, item_3_missing);
 if(overlayOn){
     draw_set_alpha(overlayAlpha);
     draw_sprite(spr_overlay,0,0,0);
+    draw_set_alpha(1);
+}
+else draw_set_alpha(1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///jumpscare
+if(jumpscare){
+    draw_set_alpha((jumpscareTime/jumpscareDur)+0.25);
+    draw_sprite(spr_jumpscare1,0,0,0);
+    draw_set_alpha(1);
 }
 </string>
           </argument>
@@ -318,7 +391,7 @@ if(overlayOn){
           <argument>
             <kind>1</kind>
             <string>draw_set_colour(c_white);
-d3d_set_fog(true, c_black, 0, 500); //CAN MAKE A FOG IF NEEDED
+d3d_set_fog(true, c_black, 0, 1000); //CAN MAKE A FOG IF NEEDED
 d3d_set_projection(x, y, z + 64 , x +cos(degtorad(direction)), y - sin(degtorad(direction)), z-sin(degtorad(pitch))+64,0,0,1);
 </string>
           </argument>

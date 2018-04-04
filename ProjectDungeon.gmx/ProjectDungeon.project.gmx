@@ -13,6 +13,7 @@
     <sprite>sprites\spr_key</sprite>
     <sprite>sprites\spr_overlay</sprite>
     <sprite>sprites\spr_ghostie</sprite>
+    <sprite>sprites\spr_jumpscare1</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_ground</background>
