@@ -8,6 +8,38 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>for (i=0; i&lt;room_width; i+= 64)
+{
+    instance_create(i,0,obj_block);
+    instance_create(i, room_height, obj_block);
+}
+for (j=0; j&lt;room_height; j+= 64)
+    {
+        instance_create(0,j,obj_block);
+        instance_create(room_width,j,obj_block);
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -26,10 +58,11 @@
           <argument>
             <kind>1</kind>
             <string>
-d3d_draw_floor(0, 0, -1, room_width, room_height, 1, sprite_get_texture(spr_ground, 0), room_width/64, room_height/64); 
-d3d_draw_floor(0, 0, 128, room_width, room_height, 129, sprite_get_texture(spr_ground, 0), room_width/64, room_height/64); 
-//d3d_draw_block(x, y, -2, x + 64, y + 64, 0, sprite_get_texture(spr_ground, 0), 1, 1);
-d3d_draw_block(500, 500, 0, 560, 560, 60, sprite_get_texture(spr_block, 0), 1, 1);
+d3d_draw_floor(0, 0, 1, room_width, room_height, -1, sprite_get_texture(spr_ground, 0), room_width/64, room_height/64); 
+d3d_draw_floor(0, 0, 128, room_width, room_height, 127, sprite_get_texture(spr_ground, 0), room_width/64, room_height/64); 
+
+
+
 
 </string>
           </argument>
