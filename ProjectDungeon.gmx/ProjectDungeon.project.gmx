@@ -16,6 +16,7 @@
     <sprite>sprites\spr_jumpscare1</sprite>
     <sprite>sprites\spr_red</sprite>
     <sprite>sprites\spr_splash</sprite>
+    <sprite>sprites\spr_lose</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_ground</background>
@@ -34,10 +35,12 @@
     <object>objects\obj_spawner</object>
     <object>objects\obj_haunted</object>
     <object>objects\obj_splash</object>
+    <object>objects\obj_lose</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_splash</room>
     <room>rooms\room0</room>
+    <room>rooms\rm_lose</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
