@@ -12,6 +12,8 @@
     <sprite>sprites\spr_camera</sprite>
     <sprite>sprites\spr_key</sprite>
     <sprite>sprites\spr_ghostie</sprite>
+    <sprite>sprites\spr_red</sprite>
+    <sprite>sprites\spr_splash</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_ground</background>
@@ -29,8 +31,10 @@
     <object>objects\obj_floor</object>
     <object>objects\obj_spawner</object>
     <object>objects\obj_haunted</object>
+    <object>objects\obj_splash</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_splash</room>
     <room>rooms\room0</room>
   </rooms>
   <help>
