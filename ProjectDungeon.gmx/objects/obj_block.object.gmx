@@ -26,9 +26,21 @@
           <argument>
             <kind>1</kind>
             <string>//draw_self();
-d3d_draw_block(x, y, 0, x + 64, y + 64, 64, sprite_get_texture(spr_block, 0), 1, 1);
-d3d_draw_block(x, y, 64, x + 64, y + 64, 128, sprite_get_texture(spr_block, 0), 1, 1);
+
 //d3d_draw_block(x, y, 124, x + 64, y + 64, 188, sprite_get_texture(spr_block, 0), 1, 1);
+
+var pos_dir_one = point_direction(obj_camera.x,obj_camera.y,x,y);
+var pos_dir_two = point_direction(obj_camera.x,obj_camera.y,x+64,y);
+var pos_dir_three = point_direction(obj_camera.x,obj_camera.y,x,y+64);
+var pos_dir_four = point_direction(obj_camera.x,obj_camera.y,x+64,y+64);
+var look_dir = obj_camera.direction
+var angle_diff = min(abs(angle_difference(look_dir, pos_dir_one)),abs(angle_difference(look_dir, pos_dir_two)),abs(angle_difference(look_dir, pos_dir_three)),abs(angle_difference(look_dir, pos_dir_four)));
+var player_in_range = point_distance(x+16,y+61,obj_camera.x,obj_camera.y) &lt; 550;
+if( player_in_range &amp;&amp; angle_diff &lt; 60){
+    
+    d3d_draw_block(x, y, 0, x + 64, y + 64, 64, sprite_get_texture(spr_block, 0), 1, 1);
+    d3d_draw_block(x, y, 64, x + 64, y + 64, 128, sprite_get_texture(spr_block, 0), 1, 1);
+}
 </string>
           </argument>
         </arguments>

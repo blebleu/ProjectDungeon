@@ -426,7 +426,7 @@ if(jumpscare){
           <argument>
             <kind>1</kind>
             <string>draw_set_colour(c_white);
-d3d_set_fog(true, c_black, 0, 1000); //CAN MAKE A FOG IF NEEDED
+d3d_set_fog(true, c_black, 0, 500); //CAN MAKE A FOG IF NEEDED
 d3d_set_projection(x, y, z + 64 , x +cos(degtorad(direction)), y - sin(degtorad(direction)), z-sin(degtorad(pitch))+64,0,0,1);
 </string>
           </argument>

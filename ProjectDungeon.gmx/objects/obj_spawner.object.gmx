@@ -33,7 +33,7 @@ for (i = 0; i &lt; spawners ; i++) {
     ylocation = irandom_range(128, room_width - 128);
     }until(xlocation mod 64==0 &amp;&amp; ylocation mod 64==0 &amp;&amp; place_free(xlocation, ylocation));
     instance_create(xlocation, ylocation, obj_block);
-    instance_create(xlocation + 32, ylocation +32, obj_haunted);
+    
 } 
 for ( i = 0; i &lt; 3; i++)
 {
@@ -44,6 +44,7 @@ for ( i = 0; i &lt; 3; i++)
         instance_create(xlocation, ylocation, obj_collectable);
         
 }
+
 </string>
           </argument>
         </arguments>
