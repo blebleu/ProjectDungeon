@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_camera</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -25,7 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spawners = 0;
+            <string>block_size=64;
+script_execute(choose(sc_r1,sc_r2));
+
+/*
+for ( i = 0; i &lt; 3; i++)
+{
+    do{
+        xlocation = irandom_range(128, room_width - 128);
+        ylocation = irandom_range(128, room_width - 128);
+        }until(xlocation mod 64==0 &amp;&amp; ylocation mod 64==0 &amp;&amp; place_free(xlocation, ylocation));
+        instance_create(xlocation, ylocation, obj_collectable);
+        
+}/*
+spawners = 0;
 spawners = irandom_range(20 , 100);
 for (i = 0; i &lt; spawners ; i++) {
     do{
@@ -35,16 +48,6 @@ for (i = 0; i &lt; spawners ; i++) {
     instance_create(xlocation, ylocation, obj_block);
     
 } 
-for ( i = 0; i &lt; 3; i++)
-{
-    do{
-        xlocation = irandom_range(128, room_width - 128);
-        ylocation = irandom_range(128, room_width - 128);
-        }until(xlocation mod 64==0 &amp;&amp; ylocation mod 64==0 &amp;&amp; place_free(xlocation, ylocation));
-        instance_create(xlocation, ylocation, obj_collectable);
-        
-}
-
 </string>
           </argument>
         </arguments>

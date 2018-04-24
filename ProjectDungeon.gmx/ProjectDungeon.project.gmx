@@ -44,6 +44,9 @@
     <background>background\bc_end</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\sc_r0.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\obj_camera</object>
     <object>objects\obj_room_spawner</object>

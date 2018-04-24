@@ -91,35 +91,28 @@ display_mouse_set(display_get_width()/2, display_get_height()/2);
 xspeed = 0;
 yspeed = 0; 
 var d = degtorad(direction);      
-switch  (keyboard_key){
-    case vk_left:
-    case ord('A'):
+if(keyboard_check(ord('A'))){
         xspeed-= sin(d) * move_speed;
         yspeed-= cos(d) * move_speed;
-        
-    
-        break;
-    case vk_down:
-    case ord('S'):
-    
+
+}
+if(keyboard_check(ord('S'))){
         xspeed-= cos(d) * move_speed;
         yspeed+= sin(d) * move_speed;
-        break;
-    case vk_right:
-    case ord('D'):
-    
+
+}
+if(keyboard_check(ord('D'))){
         xspeed+= sin(d) * move_speed;
         yspeed+= cos(d) * move_speed;
-            
-        break;
-    case vk_up:
-    case ord('W'):
-    
+
+}
+if(keyboard_check(ord('W'))){
         xspeed+= cos(d) * move_speed; 
         yspeed-= sin(d) * move_speed;
-    
-        break;
+
 }
+
+
 
 
 //Wall Collision
