@@ -4,7 +4,26 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\Story0_1</sound>
+    <sound>sound\Story0_2</sound>
+    <sound>sound\Story0_3</sound>
+    <sound>sound\Story0_4</sound>
+    <sound>sound\Story1_1</sound>
+    <sound>sound\Story1_2</sound>
+    <sound>sound\Story1_3</sound>
+    <sound>sound\Story2_1</sound>
+    <sound>sound\Story2_2</sound>
+    <sound>sound\Story2_3</sound>
+    <sound>sound\Story2_4</sound>
+    <sound>sound\Story2_5</sound>
+    <sound>sound\Story3_1</sound>
+    <sound>sound\Story3_2</sound>
+    <sound>sound\Story3_3</sound>
+    <sound>sound\Story3_4</sound>
+    <sound>sound\Story3_5</sound>
+    <sound>sound\Story3_6</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_ground</sprite>
     <sprite>sprites\spr_block</sprite>
