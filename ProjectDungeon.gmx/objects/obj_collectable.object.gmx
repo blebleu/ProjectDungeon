@@ -26,6 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>obj_camera.items ++;
+
+//Play sound
+//if(Level==1) audio_play_sound(choose(Story0_1,Story0_2,Story0_3,Story0_4,Story1_1,Story1_2,Story1_3),10,false);
+//else if(Level==2) audio_play_sound(choose(Story0_1,Story0_2,Story0_3,Story0_4,Story2_1,Story2_2,Story2_3,Story2_4,Story2_5),10,false);
+//else audio_play_sound(choose(Story0_1,Story0_2,Story0_3,Story0_4,Story3_1,Story3_2,Story3_3,Story3_4,Story3_5,Story3_6),10,false);
 </string>
           </argument>
         </arguments>
