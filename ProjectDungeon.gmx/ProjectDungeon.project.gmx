@@ -32,6 +32,7 @@
     <sprite>sprites\spr_key</sprite>
     <sprite>sprites\spr_overlay</sprite>
     <sprite>sprites\spr_ghostie</sprite>
+    <sprite>sprites\spr_test</sprite>
     <sprite>sprites\spr_jumpscare1</sprite>
     <sprite>sprites\spr_red</sprite>
     <sprite>sprites\spr_splash</sprite>
@@ -51,7 +52,6 @@
     <object>objects\obj_camera</object>
     <object>objects\obj_room_spawner</object>
     <object>objects\obj_lights</object>
-    <object>objects\obj_test2</object>
     <object>objects\obj_block</object>
     <object>objects\obj_ghostie</object>
     <object>objects\obj_collectable</object>
