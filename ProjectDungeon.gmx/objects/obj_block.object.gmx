@@ -28,7 +28,7 @@
             <string>
 
 if(!variable_global_exists("randomness")){
-    global.randomness = 2;
+    global.randomness = 0;
 }
 random1 = random_range(0,1);
 random2 = random_range(0,1);

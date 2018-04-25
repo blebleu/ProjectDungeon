@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>1000</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -166,23 +166,12 @@ if(keyboard_check(vk_shift) &amp;&amp; keyboard_check(ord("L"))){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*d3d_start();
-pitch = 0;
-direction = 0;
-z = 0;
+            <string>//Rooms
 
-xspeed = 0;
-yspeed = 0;
-zspeed = 0;
-move_speed = 4;
+if(global.randomness &gt;= 3){
+room_goto(rm_win);
 
-items = 0;
-item_1_missing = true;
-item_2_missing = true;
-item_3_missing = true;
-
-window_set_cursor(cr_none);
-
+}
 </string>
           </argument>
         </arguments>
@@ -213,6 +202,10 @@ item_2_missing = false;
 if (items &gt;= 3){
 global.randomness++;
 room_restart();
+items = 0;
+item_1_missing = true;
+item_2_missing = true;
+
 }
 
 
@@ -345,7 +338,9 @@ if(jumpscare){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_colour(c_yellow);
+            <string>//Draw UI Cirs
+
+draw_set_colour(c_yellow);
 draw_ellipse(0,0, 20,20, item_1_missing);
 draw_ellipse(30,0, 50,20, item_2_missing);
 draw_ellipse(60,0, 80,20, item_3_missing);
@@ -427,6 +422,29 @@ if(jumpscare){
             <string>draw_set_colour(c_white);
 d3d_set_fog(true, c_black, 0, 500); //CAN MAKE A FOG IF NEEDED
 d3d_set_projection(x, y, z + 64 , x +cos(degtorad(direction)), y - sin(degtorad(direction)), z-sin(degtorad(pitch))+64,0,0,1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="96">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>items ++;
 </string>
           </argument>
         </arguments>

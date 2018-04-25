@@ -23,6 +23,7 @@
     <sound>sound\Story3_4</sound>
     <sound>sound\Story3_5</sound>
     <sound>sound\Story3_6</sound>
+    <sound>sound\Background</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_ground</sprite>
