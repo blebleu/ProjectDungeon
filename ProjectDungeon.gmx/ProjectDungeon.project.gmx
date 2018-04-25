@@ -38,6 +38,7 @@
     <sprite>sprites\spr_splash</sprite>
     <sprite>sprites\spr_lose</sprite>
     <sprite>sprites\spr_end</sprite>
+    <sprite>sprites\spr_g2D</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_ground</background>
