@@ -64,6 +64,7 @@ d3d_draw_floor(0, 0, 128, room_width, room_height, 127, sprite_get_texture(spr_g
 
 
 
+
 </string>
           </argument>
         </arguments>
