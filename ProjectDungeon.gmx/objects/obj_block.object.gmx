@@ -25,7 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>randomness = 2;
+            <string>
+
+if(!variable_global_exists("randomness")){
+    global.randomness = 2;
+}
 random1 = random_range(0,1);
 random2 = random_range(0,1);
 random3= random_range(0,1);
@@ -100,15 +104,15 @@ var look_dir = obj_camera.direction
 var angle_diff = min(abs(angle_difference(look_dir, pos_dir_one)),abs(angle_difference(look_dir, pos_dir_two)),abs(angle_difference(look_dir, pos_dir_three)),abs(angle_difference(look_dir, pos_dir_four)));
 var player_in_range = point_distance(x+16,y+61,obj_camera.x,obj_camera.y) &lt; 550;
 if( player_in_range &amp;&amp; angle_diff &lt; 60){
-    if(randomness == 0){
+    if(global.randomness == 0){
     d3d_draw_block(x, y, 0, x + 64, y + 64, 64, sprite_get_texture(spr_block, 0), 1, 1);
     d3d_draw_block(x, y, 64, x + 64, y + 64, 128, sprite_get_texture(spr_block, 0), 1, 1);
     }
-    else if(randomness == 1){
+    else if(global.randomness == 1){
         d3d_draw_block(x + irandom_range(-5,5), y+ irandom_range(-5,5) , 0+ irandom_range(-5,5), (x + 64) + irandom_range(-5,5), (y + 64) + irandom_range(-5,5), 64 + irandom_range(-5,5), sprite_get_texture(spr_block, 0), 1, 1);
         d3d_draw_block(x + irandom_range(-5,5) , y + irandom_range(-5,5), 64 + irandom_range(-5,5), (x + 64) + irandom_range(-5,5), (y + 64) + irandom_range(-5,5), 128 + irandom_range(-5,5), sprite_get_texture(spr_block, 0), 1, 1);
     }
-    else if(randomness == 2){
+    else if(global.randomness == 2){
         d3d_draw_block(x + random5, y+ random6 , 0+ random7, (x + 64) + random8, (y + 64) + random5, 64 + random6, sprite_get_texture(spr_block, 0), random1, random2);
         d3d_draw_block(x + random6 , y + random7, 64 + random8, (x + 64) + random5, (y + 64) + random6, 128 + random7, sprite_get_texture(spr_block, 0), random3, random4);
     }

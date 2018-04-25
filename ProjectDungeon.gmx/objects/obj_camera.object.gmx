@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>1000</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -143,6 +143,9 @@ with(instance_place(x,y, obj_collectable))
     instance_destroy();
 
     }
+if(keyboard_check(vk_shift) &amp;&amp; keyboard_check(ord("L"))){
+    items++;
+}
 </string>
           </argument>
         </arguments>
@@ -208,7 +211,8 @@ if (items &gt;= 2){
 item_2_missing = false;
 }
 if (items &gt;= 3){
-room_goto(rm_win);
+global.randomness++;
+room_restart();
 }
 
 
@@ -233,19 +237,21 @@ room_goto(rm_win);
           <argument>
             <kind>1</kind>
             <string>///Overlay step
-var enemyDist = point_distance(x,y,obj_ghostie.x,obj_ghostie.y);
-if(enemyDist&lt;1000){
-    overlayOn=true;
-    if(overlayAlpha&gt;overlayAlphaMax) overlayDirection=false;
-    else if(overlayAlpha&lt;overlayAlphaMin) overlayDirection=true;
-    if(overlayDirection) overlayAlpha+=0.005;
-    else overlayAlpha-=0.005;
+if(instance_exists(obj_ghostie)){
+    var enemyDist = point_distance(x,y,obj_ghostie.x,obj_ghostie.y);
+    if(enemyDist&lt;1000){
+        overlayOn=true;
+        if(overlayAlpha&gt;overlayAlphaMax) overlayDirection=false;
+        else if(overlayAlpha&lt;overlayAlphaMin) overlayDirection=true;
+        if(overlayDirection) overlayAlpha+=0.005;
+        else overlayAlpha-=0.005;
+    }
+    else{
+        overlayOn=false;
+        overlayAlpha=overlayAlphaMin;
+    }
+    show_debug_message(overlayOn);
 }
-else{
-    overlayOn=false;
-    overlayAlpha=overlayAlphaMin;
-}
-show_debug_message(overlayOn);
 /*if(overlayDirection=true) overlayTimer++;
 else overlayTimer--;
 
